@@ -1,0 +1,47 @@
+<section class="col-md-10 mx-auto mt-4">
+
+    <div class="alert alert-success" *ngIf="info != undefined">{{info}}</div>
+    <div class="alert alert-danger" *ngIf="errorInfo != undefined">{{errorInfo}}</div>
+    
+    <form #frm="ngForm" (ngSubmit)="addShow()">
+      
+       <!-- <div class="mt-4">SHOW ID</div>
+      <div><input type="number" name="txtid" [(ngModel)]="show.showId" class="form-control" #showid="ngModel" required />
+      </div>
+      <div class="alert alert-dark mt-3" *ngIf="showid.invalid && (showid.touched || showid.dirty)">Show ID is required.
+      </div>-->
+    
+    
+      <div class="mt-3">Show Name</div>
+      <div><input type="text" name="txttitle" [(ngModel)]="show.showName" pattern="[A-Za-z ]*" title="Show name should contain alphabets only"class="form-control" #showname="ngModel"
+          required /></div>
+      <div class="alert alert-dark mt-3" *ngIf="showname.invalid && (showname.touched || showname.dirty)">Show Title is
+        required and contain alphabets only.</div>
+  
+      <div class="mt-3">Seats</div>
+      <div><input type="number" name="txtseats" [(ngModel)]="show.seats" pattern="[0-9]+" title="Seats  should contain positive numbers only"class="form-control" #showseats="ngModel"
+          required /></div>
+          <div class="alert alert-dark mt-3" *ngIf="showseats.invalid && (showseats.touched || showseats.dirty)">Seats are
+            required.</div>
+  
+      <div class="mt-3">Screen Name</div>
+      <div><input type="text" name="txtscreenname" [(ngModel)]="show.screenName"  class="form-control" #showscreenname="ngModel"
+          required /></div>
+      <div class="alert alert-dark mt-3" *ngIf="showscreenname.invalid && (showscreenname.touched || showscreenname.dirty)">Show
+        screenName is required</div>
+
+        <div class="mt-3">Show Start Time</div>
+      <div><input type="time" name="txtshowstarttime" [(ngModel)]="show.showstartTime" class="form-control" #showstarttime="ngModel"
+          required /></div>
+      <div class="alert alert-dark mt-3" *ngIf="showstarttime.invalid && (showstarttime.touched || showstarttime.dirty)">Show
+        Start Time  is required</div>
+
+        <div class="mt-3">Show End Time</div>
+        <div><input type="time" name="txtshowendtime" [(ngModel)]="show.showendTime" class="form-control" #showendtime="ngModel"
+            required /></div>
+        <div class="alert alert-dark mt-3" *ngIf="showendtime.invalid && (showendtime.touched || showendtime.dirty)">Show
+          End Time  is required</div>
+
+      <div class="mt-3"><input type="submit" [disabled]="!frm.valid" class="btn btn-success" /></div>
+    </form>
+  </section>
